@@ -6,20 +6,29 @@ import Home from '../../components/Dashboard/Home';
 
  function DashboardPage() {
   return (
-    <div className='col-12 d-flex'>
-      <div className='col-2'>
-        <Sidebar/>
+    // <div className='col-12 d-flex'>
+    //   <div className='col-2'>
+    //     <Sidebar/>
        
-      </div>
-      <div className='col-10'>
-        <Navbar1/>
-        <div>
-          <Home/>
+    //   </div>
+    //   <div className='col-10'>
+    //     <Navbar1/>
+    //     <div>
+    //       <Home/>
         
-        </div>
-      </div>
+    //     </div>
+    //   </div>
      
+    // </div>
+
+    <div>
+    <Sidebar />
+    <Navbar1 />
+    <div style={{ marginLeft: "250px", padding: "20px" }}>
+      <Home/>
     </div>
+  </div>
+
   );
 }
 export default DashboardPage;
