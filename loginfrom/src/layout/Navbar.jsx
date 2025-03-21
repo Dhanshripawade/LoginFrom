@@ -37,8 +37,8 @@ const Navbar1 = () => {
         <div className="d-flex align-items-center gap-3">
 
         <img
-            src="https://wiki2.railml.org/images/thumb/b/b8/UK_flag.png/1200px-UK_flag.png?20180326093516"
-            alt="UK Flag"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlIkjWuYPdlUlSxLDGzGUk8HV7JDUqdgqQvg&s"
+            alt="India Flag"
             width="24"
             height="24"
             style={{ borderRadius: '10%' }}
