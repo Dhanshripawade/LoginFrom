@@ -97,7 +97,7 @@ function Products() {
             <div className='col-10'>
                 <Navbar1 />
                 <div className='d-flex justify-content-between align-items-center mt-4 mx-4 text-bold'>
-                <h3>Products....</h3>
+                <h3>Products...</h3>
                 </div>
                 <div className="container mt-4">
             <Row xs={1} md={2} lg={4} className="g-4">

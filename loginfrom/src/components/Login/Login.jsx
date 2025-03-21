@@ -28,7 +28,7 @@ const Login = () => {
   return (
     <div className="d-flex justify-content-center align-items-center min-vh-100" style={{ backgroundColor: "#f0f2f5" }}>
       <Container className="p-5 bg-white rounded shadow" style={{ maxWidth: "400px" }}>
-        <h2 className="mb-4 text-center">Login</h2>
+        <h2 className="mb-4 text-center">Log in</h2>
         {error && <Alert variant="danger">{error}</Alert>}
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
