@@ -37,7 +37,7 @@ function User() {
             <div className='col-10'>
                 <Navbar1 />
                 <div className='d-flex justify-content-between align-items-center mt-4 mx-4 '>
-                    <h4>User</h4>
+                    <h4>Users...</h4>
                     <button className='btn btn-dark'>+ New User</button>
                 </div>
 
