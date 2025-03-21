@@ -7,12 +7,15 @@ import { FormControl, Card } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
 import axios from "axios";
 import { BsThreeDotsVertical } from 'react-icons/bs';
+import { First } from 'react-bootstrap/esm/PageItem';
 
 
 
 function User() {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState([1]);
+    const [postPerPage, setPostPerPage] = useState(8);
 
     useEffect(() => {
         axios
@@ -27,8 +30,9 @@ function User() {
             });
     }, []);
 
-    
-
+    const lastPostIndex = currentPage * postPerPage;
+    const firstPostIndex = lastPostIndex - postPerPage;
+    User.slice(firstPostIndex, )
     return (
         <div className='d-flex'>
             <div className='col-2'>
