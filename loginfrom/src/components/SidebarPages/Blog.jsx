@@ -118,12 +118,12 @@ function Blog() {
         zIndex: '1050'
     }}
 >
-    <div style={{ background: '#f8f9fa', borderRadius: '12px', padding: '20px' }}>
-        <Modal.Header closeButton>
+    <div style={{  borderRadius: '12px', padding: '20px' }}>
+        <Modal.Header closeButton > 
             <Modal.Title>NEW POST</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-            <Form>
+        <Modal.Body >
+            <Form >
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Title</Form.Label>
                     <Form.Control type="text" autoFocus />
