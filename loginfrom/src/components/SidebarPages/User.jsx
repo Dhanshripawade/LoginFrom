@@ -1,27 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../../layout/Sidebar';
 import Navbar1 from '../../layout/Navbar';
-import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
-import { FormControl, Card } from "react-bootstrap";
+import { FormControl, Card, Pagination } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
 import axios from "axios";
 import { BsThreeDotsVertical } from 'react-icons/bs';
-import { First } from 'react-bootstrap/esm/PageItem';
-
-
 
 function User() {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [currentPage, setCurrentPage] = useState([1]);
-    const [postPerPage, setPostPerPage] = useState(8);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postPerPage] = useState(8);
 
     useEffect(() => {
         axios
             .get("https://dummyjson.com/users")
             .then((response) => {
-                setUsers(response.data.users); 
+                setUsers(response.data.users);
                 setLoading(false);
             })
             .catch((error) => {
@@ -32,7 +28,12 @@ function User() {
 
     const lastPostIndex = currentPage * postPerPage;
     const firstPostIndex = lastPostIndex - postPerPage;
-    User.slice(firstPostIndex, )
+    const currentPosts = users.slice(firstPostIndex, lastPostIndex);
+
+    const totalPages = Math.ceil(users.length / postPerPage);
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
     return (
         <div className='d-flex'>
             <div className='col-2'>
@@ -40,8 +41,8 @@ function User() {
             </div>
             <div className='col-10'>
                 <Navbar1 />
-                <div className='d-flex justify-content-between align-items-center mt-4 mx-4 '>
-                    <h4>Users...</h4>
+                <div className='d-flex justify-content-between align-items-center mt-4 mx-4'>
+                    <h4>Users</h4>
                     <button className='btn btn-dark'>+ New User</button>
                 </div>
 
@@ -75,35 +76,56 @@ function User() {
                             <table className="table table-bordered table-hover">
                                 <thead className="thead-light">
                                     <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Company</th>
-                                        <th scope="col">Role</th>
-                                        <th scope="col">Verified</th>
-                                        <th scope="col">Gender</th>
-                                        <th scope="col">Actions</th>
+                                        <th>Name</th>
+                                        <th>Company</th>
+                                        <th>Role</th>
+                                        <th>Verified</th>
+                                        <th>Gender</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {users.map((user) => (
-                                        <tr key={user.id}>
-                                            
-                                            <td>{user.firstName} {user.lastName}</td>
-                                            <td>{user.company?.name }</td>
-                                            <td>{user.company?.title }</td>
-                                            <td>{user.bank?.cardType} </td>
-                                            
-                                            <td><span className={`badge ${user.gender === 'male' ? 'bg-success' : 'bg-danger'}`}>
-                                                    {user.gender === 'male' ? 'Male' : 'Female'}
-                                                </span>
-                                               
-                                            </td>
-                                            <td> <BsThreeDotsVertical size={18} /></td>
-                                           
+                                    {loading ? (
+                                        <tr>
+                                            <td colSpan="6" className="text-center">Loading...</td>
                                         </tr>
-                                    ))}
+                                    ) : (
+                                        currentPosts.map((user) => (
+                                            <tr key={user.id}>
+                                                <td>{user.firstName} {user.lastName}</td>
+                                                <td>{user.company?.name}</td>
+                                                <td>{user.company?.title}</td>
+                                                <td>{user.bank?.cardType}</td>
+                                                <td>
+                                                    <span className={`badge ${user.gender === 'male' ? 'bg-success' : 'bg-danger'}`}>
+                                                        {user.gender === 'male' ? 'Male' : 'Female'}
+                                                    </span>
+                                                </td>
+                                                <td><BsThreeDotsVertical size={18} /></td>
+                                            </tr>
+                                        ))
+                                    )}
                                 </tbody>
-                                
                             </table>
+                        </div>
+
+                        {/* Pagination Right Aligned */}
+                        <div className="d-flex justify-content-end mt-3">
+                            <Pagination>
+                                <Pagination.First onClick={() => paginate(1)} disabled={currentPage === 1} />
+                                <Pagination.Prev onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1} />
+                                {Array.from({ length: totalPages }, (_, index) => (
+                                    <Pagination.Item
+                                        key={index + 1}
+                                        active={index + 1 === currentPage}
+                                        onClick={() => paginate(index + 1)}
+                                    >
+                                        {index + 1}
+                                    </Pagination.Item>
+                                ))}
+                                <Pagination.Next onClick={() => paginate(currentPage + 1)} disabled={currentPage === totalPages} />
+                                <Pagination.Last onClick={() => paginate(totalPages)} disabled={currentPage === totalPages} />
+                            </Pagination>
                         </div>
                     </Card.Body>
                 </Card>
