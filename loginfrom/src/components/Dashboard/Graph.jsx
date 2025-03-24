@@ -21,8 +21,7 @@ const WebsiteVisitsChart = () => (
   <Container className="my-4">
     <Row className="">
       <Col md={10}>
-        {/* <Card className="p-4"> */}
-          {/* <h5>Website Visits</h5> */}
+       
           <p className="text-muted">(+43%) than last year</p>
           <ResponsiveContainer width="100%" height={220}>
             <ComposedChart data={data} margin={{ top: 20, right: 20, bottom: 0, left: 0 }}>
@@ -37,7 +36,7 @@ const WebsiteVisitsChart = () => (
               <Line type="monotone" dataKey="teamC" stroke="#0d6efd" strokeWidth={2} /> {/* Bootstrap primary color */}
             </ComposedChart>
           </ResponsiveContainer>
-        {/* </Card> */}
+        
       </Col>
     </Row>
   </Container>
