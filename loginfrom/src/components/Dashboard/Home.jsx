@@ -6,8 +6,8 @@ import PieChart from './PieChart.jsx';
 
 function Home() {
   return (
-    <Container>
-      <h4 className='mt-2'>Hi, Welcome Back</h4>
+    <Container >
+      <h4 className='mt-2 mt-5'>Hi, Welcome Back</h4>
 
       <Row className="mt-4">
         <Col md={3}>
