@@ -90,11 +90,11 @@ function Products() {
 
   return (
     
- <div className='d-flex mt-5'>
+ <div className='d-flex '>
             <div className='col-2'>
                 <Sidebar />
             </div>
-            <div className='col-10'>
+            <div className='col-10 mt-5'>
                 <Navbar1 />
                 <div className='d-flex justify-content-between align-items-center mt-4 mx-4 text-bold'>
                 <h3>Products...</h3>
