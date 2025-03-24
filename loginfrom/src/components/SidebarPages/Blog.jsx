@@ -93,11 +93,11 @@ function Blog() {
 
 
     return (
-        <div className='d-flex mt-5'>
+        <div className='d-flex'>
             <div className='col-2'>
                 <Sidebar />
             </div>
-            <div className='col-10'>
+            <div className='col-10  mt-5'>
                 <Navbar1 />
                 <div className="container my-5">
                     <div className="d-flex justify-content-between align-items-center mb-4">
@@ -187,11 +187,7 @@ function Blog() {
                                         }}>
 
                                             <Card.Title className="h6 fw-bold">{post.title}</Card.Title>
-                                            {/* <div className="d-flex justify-content-between mt-2">
-                                        <div><FaCommentDots className="me-1" /> {post.stats.comments}</div>
-                                        <div><FaHeart className="me-1" /> {post.stats.likes}</div>
-                                        <div><FaShareAlt className="me-1" /> {post.stats.shares}</div>
-                                    </div> */}
+                                          
                                         </Card.Body>
                                     </div>
                                 </Card>
