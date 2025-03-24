@@ -35,7 +35,7 @@ function User() {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
-        <div className='d-flex'>
+        <div className='d-flex mt-5'>
             <div className='col-2'>
                 <Sidebar />
             </div>
