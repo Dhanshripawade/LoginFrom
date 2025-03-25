@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from '../../layout/Sidebar'
 import Navbar1 from '../../layout/Navbar'
-import { Card, Button, Badge, Row, Col } from 'react-bootstrap';
+import { Card, Button, Row, Col } from 'react-bootstrap';
 import { useState,useEffect } from 'react';
 import axios from 'axios';
 
@@ -101,6 +101,7 @@ function Products() {
                 </div>
                 <div className="container mt-4">
             <Row xs={1} md={2} lg={4} className="g-4">
+                
                 {products.map((products, idx) => (
                     <Col key={idx}>
                         <Card className=" shadow-sm border-0 " style={{width:"270px", height:"380px"}}>
