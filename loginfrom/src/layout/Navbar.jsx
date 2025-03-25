@@ -1,25 +1,29 @@
 import React, { useState } from "react";
-import { Container, Form, Navbar, Button, InputGroup, FormControl } from "react-bootstrap";
-import { FaSearch, FaBell, FaUserCircle } from "react-icons/fa";
+import { Container, Navbar, Form, InputGroup, FormControl, Button } from "react-bootstrap";
+import { FaSearch, FaBell, FaUserCircle, FaBars } from "react-icons/fa";
 
-const Navbar1 = () => {
+const Navbar1 = ({ sidebarToggle, setSidebarToggle }) => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   return (
     <Navbar
       fixed="top"
-      className="d-flex align-items-center px-4 py-2 text-dark"
+      className="px-3 py-2 bg-white shadow-sm"
       style={{
-        background: "#ffffff",
-        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-        marginLeft: "250px",
-        width: "calc(100% - 250px)", 
-        zIndex: 1050
+        transition: "all 0.3s ease",
+        marginLeft: sidebarToggle ? "80px" : "250px",
+        width: sidebarToggle ? "calc(100% - 80px)" : "calc(100% - 250px)",
+        zIndex: 1,
       }}
     >
-      <Container fluid>
-        <Form className="d-flex flex-grow-1 me-4">
-          <InputGroup className="w-100" style={{ borderRadius: "30px", overflow: "hidden" }}>
+      <Container fluid className="d-flex align-items-center">
+        <FaBars
+          className="me-3 d-lg-none cursor-pointer"
+          onClick={() => setSidebarToggle(!sidebarToggle)}
+        />
+
+        <Form className="d-none d-md-flex flex-grow-1 me-4">
+          <InputGroup className="w-100 rounded-pill overflow-hidden">
             <InputGroup.Text style={{ border: "none" }}>
               <FaSearch />
             </InputGroup.Text>
@@ -34,36 +38,27 @@ const Navbar1 = () => {
         <div className="d-flex align-items-center gap-3 position-relative">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlIkjWuYPdlUlSxLDGzGUk8HV7JDUqdgqQvg&s"
-            alt="India Flag"
+            alt="Flag"
             width="24"
             height="24"
             style={{ borderRadius: "10%" }}
           />
-
-          <FaBell size={20} className="cursor-pointer text-dark mx-2" />
-
+          <FaBell size={20} className="cursor-pointer" />
           <div>
             <FaUserCircle
               size={30}
-              className="cursor-pointer text-dark mx-2"
+              className="cursor-pointer"
               onClick={() => setShowDropdown(!showDropdown)}
             />
             {showDropdown && (
               <div
-                style={{
-                  position: "absolute",
-                  right: 0,
-                  top: "40px",
-                  background: "#fff",
-                  borderRadius: "8px",
-                  boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-                  padding: "10px",
-                  zIndex: 1000,
-                  minWidth: "150px"
+                style={{ position: "absolute", right: 0, top: "40px",
+                  background: "white", boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+                  padding: "10px", zIndex: 1, minWidth: "90px",
                 }}
               >
-                <Button className="btn btn-primary w-100 mb-2 p-1" href="/">Login</Button>
-                <Button className="btn btn-success w-100" href="/signUp">Signup</Button>
+                <Button variant="primary" className="d-flex w-100 mb-2" href="/">Login</Button>
+                <Button variant="success" className="w-100" href="/signUp">Signup</Button>
               </div>
             )}
           </div>
