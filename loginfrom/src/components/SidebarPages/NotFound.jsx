@@ -11,14 +11,14 @@ const NotFoundPage = () => {
             Sorry, we couldn’t find the page you’re looking for.<br />
             Perhaps you’ve mistyped the URL? Be sure to check your spelling.
           </p>
-          
+
           <div className="mb-4">
             <div className="position-relative d-inline-block">
-              
+
               <img src="https://free.minimals.cc/assets/illustrations/illustration-404.svg" alt="" />
             </div>
           </div>
-        
+
           <Button variant="dark" href="/dashboard">
             Go to home
           </Button>
