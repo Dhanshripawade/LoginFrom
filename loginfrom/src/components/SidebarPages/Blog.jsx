@@ -104,48 +104,48 @@ function Blog() {
                         <h2>Blog...</h2>
 
                         <Button variant="dark" onClick={handleShow}>+ New post</Button>
-                       
-                        <Modal 
-    show={show} 
-    onHide={handleClose} 
-    backdrop="static" 
-    keyboard={false} 
-    style={{
-        position: 'fixed',
-        bottom: '20px',
-        left: '20px',
-        margin: '0',
-        zIndex: '1050'
-    }}
->
-    <div style={{  borderRadius: '12px', padding: '20px' }}>
-        <Modal.Header closeButton > 
-            <Modal.Title>NEW POST</Modal.Title>
-        </Modal.Header>
-        <Modal.Body >
-            <Form >
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Title</Form.Label>
-                    <Form.Control type="text" autoFocus />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Description</Form.Label>
-                    <Form.Control as="textarea" rows={3} />
-                </Form.Group>
-            </Form>
-        </Modal.Body>
-        <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-                Close
-            </Button>
-            <Button variant="primary" onClick={handleClose}>
-                Save Changes
-            </Button>
-        </Modal.Footer>
-    </div>
-</Modal>
 
-                        
+                        <Modal
+                            show={show}
+                            onHide={handleClose}
+                            backdrop="static"
+                            keyboard={false}
+                            style={{
+                                position: 'fixed',
+                                bottom: '20px',
+                                left: '20px',
+                                margin: '0',
+                                zIndex: '1050'
+                            }}
+                        >
+                            <div style={{ borderRadius: '12px', padding: '20px' }}>
+                                <Modal.Header closeButton >
+                                    <Modal.Title>NEW POST</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body >
+                                    <Form >
+                                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                            <Form.Label>Title</Form.Label>
+                                            <Form.Control type="text" autoFocus />
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                                            <Form.Label>Description</Form.Label>
+                                            <Form.Control as="textarea" rows={3} />
+                                        </Form.Group>
+                                    </Form>
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Button variant="secondary" onClick={handleClose}>
+                                        Close
+                                    </Button>
+                                    <Button variant="primary" onClick={handleClose}>
+                                        Save Changes
+                                    </Button>
+                                </Modal.Footer>
+                            </div>
+                        </Modal>
+
+
                     </div>
 
                     <div className="d-flex justify-content-between mb-4">
@@ -187,7 +187,7 @@ function Blog() {
                                         }}>
 
                                             <Card.Title className="h6 fw-bold">{post.title}</Card.Title>
-                                          
+
                                         </Card.Body>
                                     </div>
                                 </Card>
