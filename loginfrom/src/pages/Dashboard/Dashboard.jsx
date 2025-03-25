@@ -1,28 +1,40 @@
-import { Card, Row, Col } from 'react-bootstrap';
-import Sidebar from '../../layout/Sidebar';
-import Navbar1 from '../../layout/Navbar';
-import Home from '../../components/Dashboard/Home';
+import React, { useState, useEffect } from "react";
+import Sidebar from "../../layout/Sidebar";
+import Navbar1 from "../../layout/Navbar";
+import Home from "../../components/Dashboard/Home";
 
+function DashboardPage() {
+  const [sidebarToggle, setSidebarToggle] = useState(false);
 
- function DashboardPage() {
+  useEffect(() => {
+    const handleResize = () => {
+      setSidebarToggle(window.innerWidth < 768); 
+    };
+
+    handleResize(); 
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <div className='col-12 d-flex'>
-      <div className='col-2'>
-        <Sidebar/>
-       
-      </div>
-      <div className='col-10'>
-        <Navbar1/>
-        <div>
-          <Home/>
-        
+    <div className="d-flex">
+      <Sidebar sidebarToggle={sidebarToggle} />
+      <div
+        className="flex-grow-1"
+        style={{
+          marginLeft: sidebarToggle ? "80px" : "250px",
+          transition: "margin-left 0.3s ease",
+        }}
+      >
+        <Navbar1 sidebarToggle={sidebarToggle} setSidebarToggle={setSidebarToggle} />
+        <div className="p-4 mt-5">
+          <Home />
+          
         </div>
       </div>
-     
     </div>
-
-  
-
   );
 }
+
 export default DashboardPage;
