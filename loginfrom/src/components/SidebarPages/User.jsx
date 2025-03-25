@@ -35,21 +35,28 @@ function User() {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
-        <div className='d-flex '>
-            <div className='col-2'>
+        <div className="d-flex flex-column flex-lg-row min-vh-100">
+           
+            <div className="d-none d-lg-block" style={{ width: "250px", flexShrink: 0 }}>
                 <Sidebar />
             </div>
-            <div className='col-10 mt-5'>
+
+            
+            <div className="flex-grow-1 px-3 px-md-4 py-4 bg-light mt-5">
                 <Navbar1 />
-                <div className='d-flex justify-content-between align-items-center mt-4 mx-4'>
+
+                
+                <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mt-4 mb-3">
                     <h4>Users</h4>
-                    <button className='btn btn-dark'>+ New User</button>
+                    <button className="btn btn-dark mt-2 mt-md-0">+ New User</button>
                 </div>
 
-                <Card className='mt-4 mx-4 shadow-sm border-0 bg-light'>
+                
+                <Card className="shadow-sm border-0">
                     <Card.Body>
+                       
                         <Form className="mb-4">
-                            <div className="position-relative w-50">
+                            <div className="position-relative w-100 w-md-50">
                                 <FaSearch
                                     style={{
                                         position: "absolute",
@@ -72,6 +79,7 @@ function User() {
                             </div>
                         </Form>
 
+                       
                         <div className="table-responsive">
                             <table className="table table-bordered table-hover">
                                 <thead className="thead-light">
@@ -109,7 +117,7 @@ function User() {
                             </table>
                         </div>
 
-                        {/* Pagination Right Aligned */}
+                        {/* Pagination */}
                         <div className="d-flex justify-content-end mt-3">
                             <Pagination>
                                 <Pagination.First onClick={() => paginate(1)} disabled={currentPage === 1} />
@@ -127,10 +135,12 @@ function User() {
                                 <Pagination.Last onClick={() => paginate(totalPages)} disabled={currentPage === totalPages} />
                             </Pagination>
                         </div>
+
                     </Card.Body>
                 </Card>
             </div>
         </div>
+        
     );
 }
 
