@@ -106,14 +106,7 @@ function Products() {
                         <Card className=" shadow-sm border-0 " style={{width:"270px", height:"380px"}}>
                             <div style={{ position: "relative" }}>
                                 <Card.Img variant="top" src={products.thumbnail} className="rounded-top" />
-                                {/* {products.label && (
-                                    <Badge
-                                       bg={products.label === "SALE" ? "danger" : "info"} 
-                                        style={{ position: "absolute", top: "10px", right: "10px" }}
-                                    >
-                                        {products.label}
-                                    </Badge> */}
-                                {/* )} */}
+                                
                             </div>
                             <Card.Body>
                                 <Card.Title>{products.title}</Card.Title>

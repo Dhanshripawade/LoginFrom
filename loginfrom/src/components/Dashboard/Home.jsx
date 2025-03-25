@@ -4,7 +4,7 @@ import { FaAndroid, FaApple, FaWindows, FaBug } from 'react-icons/fa';
 import Graph from './Graph.jsx';
 import PieChart from './PieChart.jsx';
 
-function Home() {
+const Home=(sidebarToggle,setSidebarToggle) => {
   return (
     <Container >
       <h4 className='mt-2 mt-5'>Hi, Welcome Back</h4>
@@ -81,7 +81,7 @@ function Home() {
         <Col md={6}>
           <Card className="border-0 shadow-sm mt-3">
           
-              <PieChart />
+              <PieChart  />
            
           </Card>
         </Col>
