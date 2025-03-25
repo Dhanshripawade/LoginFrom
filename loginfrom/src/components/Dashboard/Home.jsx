@@ -4,14 +4,15 @@ import { FaAndroid, FaApple, FaWindows, FaBug } from 'react-icons/fa';
 import Graph from './Graph.jsx';
 import PieChart from './PieChart.jsx';
 
-const Home=(sidebarToggle,setSidebarToggle) => {
+const Home = ({ sidebarToggle, setSidebarToggle }) => {
   return (
-    <Container >
-      <h4 className='mt-2 mt-5'>Hi, Welcome Back</h4>
+    <Container fluid className="px-3 px-md-4">
+      <h4 className="mt-3">Hi, Welcome Back</h4>
 
-      <Row className="mt-4">
-        <Col md={3}>
-          <Card className="border-0 text-center p-3 rounded-3 text-decoration-none" style={{backgroundColor: "rgb(209,233,252)"}}>
+      
+      <Row className="mt-4 gy-3">
+        <Col xs={12} sm={6} lg={3}>
+          <Card className="border-0 text-center p-3 rounded-3 h-100" style={{ backgroundColor: "rgb(209,233,252)" }}>
             <div className="d-flex justify-content-center align-items-center mb-3">
               <div className="bg-primary-subtle rounded-circle d-flex justify-content-center align-items-center" style={{ width: '60px', height: '60px' }}>
                 <FaAndroid size={24} className="text-primary" />
@@ -24,8 +25,8 @@ const Home=(sidebarToggle,setSidebarToggle) => {
           </Card>
         </Col>
 
-        <Col md={3}>
-          <Card className="border-0 text-center p-3 rounded-3" style={{backgroundColor: "rgb(208,242,254)"}}>
+        <Col xs={12} sm={6} lg={3}>
+          <Card className="border-0 text-center p-3 rounded-3 h-100" style={{ backgroundColor: "rgb(208,242,254)" }}>
             <div className="d-flex justify-content-center align-items-center mb-3">
               <div className="bg-info-subtle rounded-circle d-flex justify-content-center align-items-center" style={{ width: '60px', height: '60px' }}>
                 <FaApple size={24} className="text-primary" />
@@ -38,8 +39,8 @@ const Home=(sidebarToggle,setSidebarToggle) => {
           </Card>
         </Col>
 
-        <Col md={3}>
-          <Card className="border-0 text-center p-3 rounded-3" style={{backgroundColor: "rgb(255,247,204)"}}>
+        <Col xs={12} sm={6} lg={3}>
+          <Card className="border-0 text-center p-3 rounded-3 h-100" style={{ backgroundColor: "rgb(255,247,204)" }}>
             <div className="d-flex justify-content-center align-items-center mb-3">
               <div className="bg-warning-subtle rounded-circle d-flex justify-content-center align-items-center" style={{ width: '60px', height: '60px' }}>
                 <FaWindows size={24} className="text-warning" />
@@ -52,8 +53,8 @@ const Home=(sidebarToggle,setSidebarToggle) => {
           </Card>
         </Col>
 
-        <Col md={3}>
-          <Card className="border-0 text-center p-3 rounded-3" style={{backgroundColor: "rgb(255,231,217)"}}>
+        <Col xs={12} sm={6} lg={3}>
+          <Card className="border-0 text-center p-3 rounded-3 h-100" style={{ backgroundColor: "rgb(255,231,217)" }}>
             <div className="d-flex justify-content-center align-items-center mb-3">
               <div className="bg-danger-subtle rounded-circle d-flex justify-content-center align-items-center" style={{ width: '60px', height: '60px' }}>
                 <FaBug size={24} className="text-danger" />
@@ -66,28 +67,29 @@ const Home=(sidebarToggle,setSidebarToggle) => {
           </Card>
         </Col>
       </Row>
-    
-      <Row className="gx-4 gy-4">
-        <Col md={6}>
-          <Card className="border-0 shadow-sm mt-3">
+
+     
+      <Row className="gx-4 gy-4 mt-3">
+        <Col xs={12} lg={6}>
+          <Card className="border-0 shadow-sm h-100">
             <Card.Body>
               <h5 className="fw-semibold mb-3">Website Visits</h5>
-              < Graph/>
+              <Graph />
               <small className="text-muted d-block mt-2">(+43%) than last year</small>
             </Card.Body>
           </Card>
         </Col>
 
-        <Col md={6}>
-          <Card className="border-0 shadow-sm mt-3">
-          
-              <PieChart  />
-           
+        <Col xs={12} lg={6}>
+          <Card className="border-0 shadow-sm h-100">
+            <Card.Body>
+              <PieChart />
+            </Card.Body>
           </Card>
         </Col>
       </Row>
     </Container>
   );
-}
+};
 
 export default Home;
